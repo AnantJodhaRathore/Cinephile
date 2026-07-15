@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09090b">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>{% block title %}Cinephile{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+  <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('home') }}" aria-label="Cinephile home"><img src="{{ url_for('static', filename='logo.png') }}" alt="Cinephile"></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="{{ url_for('movies') }}">Movies</a>
+      <a href="{{ url_for('tv_shows') }}">TV Shows</a>
+      <a href="{{ url_for('genres') }}">Genres</a>
+      <a href="{{ url_for('new_popular') }}">New & Popular</a>
+      <a href="{{ url_for('reviews') }}">Reviews</a>
+    </nav>
+    <div class="account-nav">
+      {% if g.user %}
+        <a class="icon-link" href="{{ url_for('mylist') }}">My List</a>
+        <a class="avatar" href="{{ url_for('dashboard') }}" title="Dashboard">{{ g.user.username[0]|upper }}</a>
+        <form action="{{ url_for('logout') }}" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="text-button">Sign out</button></form>
+      {% else %}
+        <a href="{{ url_for('login') }}">Sign in</a><a class="button small" href="{{ url_for('register') }}">Join free</a>
+      {% endif %}
+    </div>
+  </header>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}<div class="flash-stack" aria-live="polite">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+  {% endwith %}
+  <main>{% block content %}{% endblock %}</main>
+  <footer><div><a class="brand" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="Cinephile"></a><p>Good stories, thoughtfully collected.</p></div><div><p>© {{ current_year }} Cinephile</p><a href="{{ url_for('health') }}">System status</a></div></footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% block title %}Cinephile — Find your next favorite{% endblock %}
+{% block content %}
+{% set hero = featured[0] %}
+<section class="hero" style="--hero:url('{{ hero.backdrop }}')">
+  <div class="hero-content"><span class="eyebrow">Cinephile spotlight</span><h1>{{ hero.title }}</h1><p>{{ hero.description }}</p>
+    <div class="meta"><span>{{ hero.release_date[:4] }}</span><span>★ {{ hero.rating }}</span><span>{{ hero.runtime }}</span><span>{{ hero.maturity }}</span></div>
+    <div class="actions"><a class="button" href="{{ url_for('content_detail', content_id=hero.id) }}">Explore title</a><a class="button ghost" href="{{ url_for('new_popular') }}">Browse collection</a></div>
+  </div>
+</section>
+<section class="section"><div class="section-heading"><div><span class="eyebrow">Editor’s picks</span><h2>Worth your time</h2></div><a href="{{ url_for('movies') }}">View all →</a></div>
+  <div class="poster-grid">{% for item in trending %}{% include '_card.html' %}{% endfor %}</div>
+</section>
+<section class="membership"><span class="eyebrow">Your watch, your way</span><h2>Remember every great story.</h2><p>Build a watchlist, track what you’ve seen, and share ratings with fellow film lovers.</p><a class="button" href="{{ url_for('register') if not g.user else url_for('dashboard') }}">{{ 'Create your free account' if not g.user else 'Open your dashboard' }}</a></section>
+{% endblock %}
