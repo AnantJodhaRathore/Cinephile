@@ -24,6 +24,22 @@ A modern full-stack movie and TV discovery platform built with **Flask** and **S
 ![Jinja](https://img.shields.io/badge/Jinja-Templates-B41717?style=flat-square&logo=jinja&logoColor=white)
 ![License](https://img.shields.io/badge/License-Not%20specified-lightgrey?style=flat-square)
 
+![Dashboard](src/assets/s1.png)
+![Dashboard](src/assets/s2.png)
+![Dashboard](src/assets/s3.png)
+![Dashboard](src/assets/s4.png)
+![Dashboard](src/assets/s5.png)
+![Dashboard](src/assets/s6.png)
+![Dashboard](src/assets/s7.png)
+![Dashboard](src/assets/s8.png)
+![Dashboard](src/assets/s9.png)
+![Dashboard](src/assets/s10.png)
+![Dashboard](src/assets/s11.png)
+![Dashboard](src/assets/s12.png)
+![Dashboard](src/assets/s13.png)
+![Dashboard](src/assets/s14.png)
+![Dashboard](src/assets/s15.png)
+
 </div>
 
 ---
