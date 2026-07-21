@@ -10,8 +10,11 @@ A modern full-stack movie and TV discovery platform built with **Flask** and **S
 
 <br />
 
-<a href="#-features"><img src="https://img.shields.io/badge/Explore-Features-D8AD63?style=for-the-badge" alt="Explore features" /></a>
-<a href="#-getting-started"><img src="https://img.shields.io/badge/Get-Started-B83A34?style=for-the-badge" alt="Get started" /></a>
+<a href="https://www.linkedin.com/in/anant-jodha/">
+  <img src="https://img.shields.io/badge/LinkedIn-Connect%20with%20Anant%20Jodha-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Button" />
+</a>
+<a href="#features"><img src="https://img.shields.io/badge/Explore-Features-D8AD63?style=for-the-badge" alt="Explore features" /></a>
+<a href="#getting-started"><img src="https://img.shields.io/badge/Get-Started-B83A34?style=for-the-badge" alt="Get started" /></a>
 
 <br /><br />
 
@@ -31,7 +34,7 @@ A modern full-stack movie and TV discovery platform built with **Flask** and **S
 
 Visitors can explore featured titles, search the catalog, filter by genre, view community reviews, and browse new releases. Registered members can build a watchlist, maintain their viewing history, and publish or update reviews.
 
-The project runs locally without a separate database server. SQLite, the relational schema, indexes, and starter catalog are initialized automatically on the first request.
+The project runs locally without a separate database server. SQLite, the relational schema, indexes, and starter catalog are initialized automatically on the first request. The included catalog features titles such as **Inception**, **The Dark Knight**, **Interstellar**, **Breaking Bad**, and **Sherlock**.
 
 ## Features
 
@@ -202,6 +205,8 @@ COOKIE_SECURE=true
 
 Do not commit `.env` or the generated database file.
 
+> The project does not require environment variables for local development. Flask will not load `.env` automatically unless `python-dotenv` is installed, so either export the variables in your terminal or install `python-dotenv` if you want automatic `.env` loading. Always provide a stable `SECRET_KEY` in production.
+
 ## Run the tests
 
 With the virtual environment activated:
@@ -222,6 +227,8 @@ gunicorn --bind 0.0.0.0:8000 --workers 2 app:app
 ```
 
 Then open `http://localhost:8000`.
+
+On Windows, use Flask's development server for local work. For a native Windows production deployment, use a Windows-compatible WSGI server such as Waitress; Gunicorn is intended for Unix-like environments.
 
 ### Docker
 
@@ -309,3 +316,17 @@ git push origin feature/your-feature
 Built for people who always have one more title on their watchlist.
 
 </div>
+
+## 🤝 Connect With Me
+
+<div align="center">
+
+### 👨‍💻 Anant Jodha
+
+<a href="https://www.linkedin.com/in/anant-jodha/">
+  <img src="https://img.shields.io/badge/LinkedIn-Connect%20Now-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Button" />
+</a>
+
+</div>
+
+---

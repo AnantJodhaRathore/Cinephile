@@ -21,7 +21,12 @@ def csrf(client):
 
 def test_public_pages_and_health(client):
     assert client.get("/").status_code == 200
-    assert client.get("/movies").status_code == 200
+    movies = client.get("/movies")
+    shows = client.get("/tv_shows")
+    assert movies.status_code == 200
+    assert shows.status_code == 200
+    assert b"Inception" in movies.data
+    assert b"Breaking Bad" in shows.data
     assert client.get("/health").json == {"status": "ok"}
 
 

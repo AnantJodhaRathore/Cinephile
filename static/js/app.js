@@ -1,4 +1,14 @@
 const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
+
+// Use the bundled fallback when remote catalog artwork is unavailable.
+document.addEventListener('error', event => {
+  const image = event.target;
+  if (image instanceof HTMLImageElement && !image.dataset.fallbackApplied) {
+    image.dataset.fallbackApplied = 'true';
+    image.src = '/static/default.jpg';
+  }
+}, true);
+
 const navButton = document.querySelector('.nav-toggle');
 navButton?.addEventListener('click', () => {
   const nav = document.querySelector('.nav');
